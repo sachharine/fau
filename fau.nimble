@@ -13,7 +13,7 @@ requires "https://github.com/Anuken/nimsoloud#c74878dcb60fd2e2af84f894a8a8ffe901
 requires "polymorph >= 0.3.0"
 requires "cligen >= 1.5.37"
 requires "chroma >= 0.2.5"
-requires "pixie == 4.0.1"
+requires "pixie == 5.0.0"
 requires "vmath >= 1.0.8"
 requires "stbimage >= 2.5"
 requires "jsony >= 1.1.5"
