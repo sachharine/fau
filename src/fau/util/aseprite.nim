@@ -150,7 +150,7 @@ proc readAseStream*(s: Stream): AseImage =
             compressedLength = chunkSize.int - 6 - 2 - 4 - 1 - 2 - 4 - 7
             compressedData = newSeqUninitialized[uint8](compressedLength)
 
-          discard s.readData(addr compressedData[0], compressedLength.int)
+          discard s.readData(unsafeAddr compressedData[0], compressedLength.int)
           
           #instead of frames containing layers, it's layers containing frames (more intuitive to me)
 
