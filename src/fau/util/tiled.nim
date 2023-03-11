@@ -151,7 +151,7 @@ proc postHook*(map: var Tilemap) =
         decoded = decode(layer.data)
         decompressed = if layer.compression == "": decoded else: uncompress(decoded)
         numTiles = decompressed.len div 4
-        intData = cast[ptr UncheckedArray[uint32]](addr decompressed[0])
+        intData = cast[ptr UncheckedArray[uint32]](unsafeAddr decompressed[0])
       
       layer.tiles = newSeq[TileCell](numTiles)
 
