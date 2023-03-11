@@ -37,7 +37,7 @@ proc readAseStream*(s: Stream): AseImage =
       ""
     else:
       var str = newString(slen)
-      discard s.readData(addr str[0], slen)
+      discard s.readData(unsafeAddr str[0], slen)
       str
 
   discard s.readUint32() #file size
@@ -155,7 +155,7 @@ proc readAseStream*(s: Stream): AseImage =
           #instead of frames containing layers, it's layers containing frames (more intuitive to me)
 
           layerData[layerIndex].frames.add AseFrame(
-            data: uncompress(addr compressedData[0], compressedLength.int, dataFormat = dfZlib), 
+            data: uncompress(unsafeAddr compressedData[0], compressedLength.int, dataFormat = dfZlib), 
             duration: durationMs.int,
             x: x.int,
             y: y.int,
